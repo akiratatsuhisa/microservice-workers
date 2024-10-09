@@ -25,6 +25,6 @@ export default class extends WorkerEntrypoint<Env> {
 	}
 
 	async fetch(): Promise<Response> {
-		return new Response('');
+		return new Response('Test');
 	}
 }
