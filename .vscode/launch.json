@@ -1,0 +1,56 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Wrangler Gateway",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "cwd": "${workspaceRoot}/gateway",
+      "resolveSourceMapLocations": null,
+      "attachExistingChildren": false,
+      "autoAttachChildProcesses": false
+    },
+    {
+      "name": "Node Gateway",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/gateway",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["dev"]
+    },
+    {
+      "name": "Node Service A",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/workers/service-a",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["dev"]
+    },
+    {
+      "name": "Node Service B",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/workers/service-b",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["dev"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Compound",
+      "configurations": [
+        "Node Service A",
+        "Node Service B",
+        "Node Gateway",
+        "Wrangler Gateway"
+      ]
+    }
+  ]
+}

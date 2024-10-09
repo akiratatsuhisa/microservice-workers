@@ -1,0 +1,13 @@
+{
+  "packageManager": "yarn@4.5.0",
+  "workspaces": [
+    "gateway",
+    "workers/*"
+  ],
+  "scripts": {
+    "service-a:test:format": "yarn workspace service-a test:format",
+    "service-b:test:format": "yarn workspace service-b test:format",
+    "gateway:test:format": "yarn workspace gateway test:format",
+    "test:format": "yarn service-a:test:format && yarn service-b:test:format && yarn gateway:test:format"
+  }
+}
