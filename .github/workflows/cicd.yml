@@ -23,6 +23,7 @@ jobs:
   deploy-service-a:
     runs-on: ubuntu-latest
     needs: test
+    if: ${{ contains(github.event.head_commit.modified, 'workers/service-a') }}
     steps:
       - uses: actions/checkout@v4
 
@@ -36,6 +37,7 @@ jobs:
   deploy-service-b:
     runs-on: ubuntu-latest
     needs: test
+    if: ${{ contains(github.event.head_commit.modified, 'workers/service-b') }}
     steps:
       - uses: actions/checkout@v4
 
@@ -49,6 +51,7 @@ jobs:
   deploy-gateway:
     runs-on: ubuntu-latest
     needs: test
+    if: ${{ contains(github.event.head_commit.modified, 'gateway') }}
     steps:
       - uses: actions/checkout@v4
 
