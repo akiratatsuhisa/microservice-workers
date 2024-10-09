@@ -21,10 +21,13 @@ export default class extends WorkerEntrypoint<Env> {
 	}
 
 	async getNumber(): Promise<number> {
-		return this.env.SERVICE_A.getNumber();
+		const number = await this.env.SERVICE_A.getNumber();
+		console.log(`number ${number}`);
+
+		return number;
 	}
 
 	async fetch(): Promise<Response> {
-		return new Response('Test');
+		return new Response('');
 	}
 }

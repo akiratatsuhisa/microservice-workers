@@ -27,6 +27,6 @@ export default {
 
 		console.log(`z: ${z}`);
 
-		return new Response(`test ${x} ${y} ${z}`);
+		return new Response(`test ${x} ${y} ${z}.`);
 	},
 } satisfies ExportedHandler<Env>;

@@ -6,7 +6,7 @@ export default class extends WorkerEntrypoint {
 	}
 
 	async getNumber(): Promise<number> {
-		return 7;
+		return 12;
 	}
 
 	async fetch(): Promise<Response> {
